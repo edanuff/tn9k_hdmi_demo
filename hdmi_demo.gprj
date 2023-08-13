@@ -1,0 +1,28 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/gowin_clkdiv/gowin_clkdiv.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/audio_clock_regeneration_packet.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/audio_info_frame.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/audio_sample_packet.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/auxiliary_video_information_info_frame.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/hdmi.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/packet_assembler.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/packet_picker.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/serializer.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/source_product_description_info_frame.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi/tmds_channel.sv" type="file.verilog" enable="1"/>
+        <File path="src/hdmi_demo_top.sv" type="file.verilog" enable="1"/>
+        <File path="src/sound/sawtooth.sv" type="file.verilog" enable="1"/>
+        <File path="src/vga-text-mode/attributemap.v" type="file.verilog" enable="1"/>
+        <File path="src/vga-text-mode/console.v" type="file.verilog" enable="1"/>
+        <File path="src/vga-text-mode/glyphmap.v" type="file.verilog" enable="1"/>
+        <File path="src/hdmi_demo.cst" type="file.cst" enable="1"/>
+        <File path="src/hdmi_demo.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>
