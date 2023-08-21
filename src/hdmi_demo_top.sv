@@ -1,8 +1,8 @@
+`define GW_IDE
 module hdmi_demo_top
 (
   input clk,
   input resetn,
-  inout a2_dma,
 
   output reg [5:0] led,    // 6 LEDS pin
 
@@ -62,19 +62,23 @@ logic [9:0] cx, cy;
 //logic [2:0] tmds;
 //logic tmds_clock;
 hdmi #(.VIDEO_ID_CODE(1),
-    .VIDEO_REFRESH_RATE(60.0),
-    .AUDIO_RATE(AUDIO_RATE),
-    .AUDIO_BIT_WIDTH(AUDIO_BIT_WIDTH))
+    .VIDEO_REFRESH_RATE(60.0)
+    //.AUDIO_RATE(AUDIO_RATE),
+    //.DVI_OUTPUT(1)
+    //.AUDIO_BIT_WIDTH(AUDIO_BIT_WIDTH))
+)
     hdmi(.clk_pixel_x5(clk_pixel_x5),
     .clk_pixel(clk_pixel),
-    .clk_audio(clk_audio),
+    .reset(!sys_resetn),
+    //.clk_audio(clk_audio),
     .rgb(rgb),
-    .audio_sample_word('{audio_sample_word_dampened, audio_sample_word_dampened}),
+    //.audio_sample_word('{audio_sample_word_dampened, audio_sample_word_dampened}),
     .tmds(tmds_x),
     .tmds_clock(tmds_clock_x),
     .cx(cx),
     .cy(cy));
 
+/*
 ELVDS_OBUF tmds [2:0] (
   .O(tmds_p),
   .OB(tmds_n),
@@ -86,6 +90,14 @@ ELVDS_OBUF tmds_clock(
   .OB(tmds_clock_n),
   .I(tmds_clock_x)
 );
+*/
+
+ELVDS_OBUF tmds_bufds[3:0] (
+    .I ({tmds_clock_x, tmds_x}),
+    .O ({tmds_clock_p, tmds_p}),
+    .OB({tmds_clock_n, tmds_n})
+);
+
 
 logic [7:0] character = 8'h30;
 logic [5:0] prevcy = 6'd0;

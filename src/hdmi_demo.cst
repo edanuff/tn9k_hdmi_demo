@@ -11,6 +11,3 @@ IO_LOC "resetn" 4;
 IO_PORT "resetn" PULL_MODE=UP;
 IO_LOC "clk" 52;
 IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-
-IO_LOC "a2_dma" 86;
-IO_PORT "a2_dma" PULL_MODE=UP OPEN_DRAIN=ON;
