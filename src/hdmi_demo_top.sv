@@ -62,11 +62,10 @@ logic [9:0] cx, cy;
 //logic [2:0] tmds;
 //logic tmds_clock;
 hdmi #(.VIDEO_ID_CODE(1),
-    .VIDEO_REFRESH_RATE(60.0)
-    //.AUDIO_RATE(AUDIO_RATE),
-    //.DVI_OUTPUT(1)
-    //.AUDIO_BIT_WIDTH(AUDIO_BIT_WIDTH))
-)
+    .VIDEO_REFRESH_RATE(60.0),
+    .AUDIO_RATE(AUDIO_RATE),
+    .DVI_OUTPUT(0),
+    .AUDIO_BIT_WIDTH(AUDIO_BIT_WIDTH))
     hdmi(.clk_pixel_x5(clk_pixel_x5),
     .clk_pixel(clk_pixel),
     .reset(!sys_resetn),
